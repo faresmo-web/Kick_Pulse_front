@@ -1,0 +1,301 @@
+:host ::ng-deep {
+  .navbar {
+    background-color: #ffffff;
+    border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  }
+
+  .navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .navbar-start {
+    flex: 0 0 auto;
+  }
+
+  .logo-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    cursor: pointer;
+
+    &:hover {
+      .logo-img {
+        transform: scale(1.08) rotate(3deg);
+        filter: drop-shadow(0 0 8px rgba(37, 99, 235, 0.3));
+      }
+      .logo-text {
+        color: #2563EB;
+      }
+    }
+  }
+
+  .logo-img {
+    height: 240px;
+    width: auto;
+    object-fit: contain;
+    margin-top: -95px;
+    margin-bottom: -95px;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), filter 0.3s ease;
+
+    @media (max-width: 768px) {
+      height: 160px;
+      margin-top: -65px;
+      margin-bottom: -65px;
+    }
+  }
+
+  .logo-text {
+    font-size: 26px;
+    font-weight: 850;
+    color: #0F172A;
+    letter-spacing: -0.5px;
+    transition: color 0.3s ease;
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+    }
+  }
+
+  .navbar-center {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    margin: 0 40px;
+
+    @media (max-width: 1024px) {
+      margin: 0 20px;
+    }
+
+    @media (max-width: 768px) {
+      display: none;
+    }
+  }
+
+  .nav-menu {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .nav-link {
+    text-decoration: none;
+    color: #475569;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    padding: 8px 16px;
+    border-radius: 6px;
+
+    &:hover {
+      color: #2563EB;
+      background-color: rgba(37, 99, 235, 0.08);
+    }
+  }
+
+  .navbar-end {
+    flex: 0 0 auto;
+  }
+
+  .profile-btn {
+    color: #475569;
+    transition: all 0.3s ease;
+
+    &:hover {
+      color: #2563EB;
+      background-color: rgba(37, 99, 235, 0.08);
+    }
+  }
+
+  .mat-toolbar {
+    height: auto;
+    padding: 12px 0;
+  }
+
+  /* --- شريط الأخبار العاجلة المتحرك --- */
+  .breaking-news-ticker {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: #ffffff;
+    height: 44px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 1px 0 0 rgba(255, 255, 255, 0.1), 0 4px 12px rgba(0, 0, 0, 0.15);
+    direction: rtl; /* ضمان اتجاه الـ RTL بشكل كامل */
+    font-family: inherit;
+    border-bottom: 2px solid #ef4444; /* خط أحمر رياضي أسفل شريط الأخبار العاجلة */
+  }
+
+  .ticker-badge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(90deg, #dc2626 0%, #ef4444 100%);
+    color: #ffffff;
+    padding: 0 20px;
+    height: 100%;
+    font-weight: 700;
+    font-size: 14px;
+    z-index: 10;
+    box-shadow: -4px 0 15px rgba(220, 38, 38, 0.4);
+    position: relative;
+    flex-shrink: 0;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+
+    /* إعطاء حافة مائلة أنيقة للشارة */
+    &::after {
+      content: '';
+      position: absolute;
+      left: -12px;
+      top: 0;
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 44px 12px 0 0;
+      border-color: #ef4444 transparent transparent transparent;
+    }
+  }
+
+  .live-pulse {
+    width: 8px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    animation: pulse-animation 1.5s infinite cubic-bezier(0.66, 0, 0, 1);
+  }
+
+  @keyframes pulse-animation {
+    0% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+    70% {
+      transform: scale(1);
+      box-shadow: 0 0 0 6px rgba(255, 255, 255, 0);
+    }
+    100% {
+      transform: scale(0.95);
+      box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+  }
+
+  .badge-title {
+    text-transform: uppercase;
+  }
+
+  .ticker-scroll-container {
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-right: 20px; /* مسافة بسيطة بعد الشارة المائلة */
+  }
+
+  .ticker-scroll-track {
+    display: flex;
+    width: max-content;
+    animation: scroll-ticker 35s linear infinite;
+
+    /* إيقاف الحركة عند الحوم */
+    &:hover {
+      animation-play-state: paused;
+    }
+  }
+
+  .ticker-scroll-content {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 40px; /* مسافة بين الأخبار المتتالية */
+    padding-left: 40px; /* مسافة للمجموعة التالية لضمان عدم الاندماج */
+  }
+
+  .ticker-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 13.5px;
+    font-weight: 550;
+    color: #e2e8f0;
+    transition: color 0.2s ease, transform 0.2s ease;
+    cursor: pointer;
+
+    &:hover {
+      color: #3b82f6; /* لون أزرق رياضي تفاعلي جذاب */
+      transform: scale(1.02);
+    }
+  }
+
+  .ticker-icon {
+    color: #f59e0b; /* لون صاعقة البرق البرتقالي اللامع */
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    filter: drop-shadow(0 0 2px rgba(245, 158, 11, 0.5));
+  }
+
+  .ticker-text {
+    line-height: 1;
+  }
+
+  /* حركة انزلاق النص من اليسار إلى اليمين في اتجاه الـ RTL */
+  @keyframes scroll-ticker {
+    0% {
+      transform: translate3d(0, 0, 0);
+    }
+    100% {
+      transform: translate3d(50%, 0, 0); /* بما أن لدينا نسختين متطابقتين تماماً، فإن الانتقال بـ 50% يضمن التكرار اللانهائي السلس */
+    }
+  }
+
+  /* التجاوب مع الهواتف الذكية والشاشات الصغيرة */
+  @media (max-width: 640px) {
+    .breaking-news-ticker {
+      height: 38px;
+    }
+    .ticker-badge {
+      padding: 0 12px;
+      font-size: 12px;
+      
+      &::after {
+        border-width: 38px 8px 0 0;
+        left: -8px;
+      }
+    }
+    .live-pulse {
+      width: 6px;
+      height: 6px;
+    }
+    .ticker-item {
+      font-size: 12px;
+      gap: 6px;
+    }
+    .ticker-scroll-content {
+      gap: 24px;
+      padding-left: 24px;
+    }
+    @keyframes scroll-ticker {
+      0% {
+        transform: translate3d(0, 0, 0);
+      }
+      100% {
+        transform: translate3d(50%, 0, 0);
+      }
+    }
+  }
+}
+

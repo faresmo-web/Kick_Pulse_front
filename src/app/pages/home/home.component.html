@@ -1,0 +1,38 @@
+<main class="home-container">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 class="hero-title">بوابة كرة القدم المباشرة</h1>
+      <p class="hero-subtitle">شاهد المباريات مباشرة، تابع إحصائيات الفرق، واحصل على أحدث أخبار الكرة</p>
+      <button mat-raised-button class="hero-btn">استعرض المباريات</button>
+    </div>
+  </section>
+
+  <!-- Live Matches Section -->
+  <section class="matches-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">🔴 المباريات المباشرة</h2>
+        <p class="section-subtitle">تابع أحداث المباراة لحظة بلحظة</p>
+      </div>
+
+      <div class="matches-grid">
+        <app-match-card *ngFor="let match of liveMatches" [match]="match"></app-match-card>
+      </div>
+    </div>
+  </section>
+
+  <!-- Trending News Section -->
+  <section class="news-section">
+    <div class="section-container">
+      <div class="section-header">
+        <h2 class="section-title">📰 أحدث الأخبار</h2>
+        <p class="section-subtitle">أهم التحديثات من عالم كرة القدم</p>
+      </div>
+
+      <div class="news-grid">
+        <app-news-card *ngFor="let item of trendingNews" [news]="item"></app-news-card>
+      </div>
+    </div>
+  </section>
+</main>

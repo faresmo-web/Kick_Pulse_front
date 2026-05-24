@@ -1,0 +1,56 @@
+<mat-toolbar class="navbar">
+  <div class="navbar-container">
+    <div class="navbar-start">
+      <a href="#" class="logo-container">
+        <img src="image/log.png" alt="بوابة الكرة" class="logo-img">
+        <span class="logo-text"></span>
+      </a>
+    </div>
+
+    <div class="navbar-center">
+      <nav class="nav-menu">
+        <a href="#" class="nav-link">الرئيسية</a>
+        <a href="#" class="nav-link">المباريات</a>
+        <a href="#" class="nav-link">الفرق</a>
+        <a href="#" class="nav-link">الأخبار</a>
+      </nav>
+    </div>
+
+    <div class="navbar-end">
+      <button mat-icon-button [matMenuTriggerFor]="profileMenu" class="profile-btn">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+      <mat-menu #profileMenu="matMenu">
+        <button mat-menu-item>الملف الشخصي</button>
+        <button mat-menu-item>الإعدادات</button>
+        <button mat-menu-item>تسجيل الخروج</button>
+      </mat-menu>
+    </div>
+  </div>
+</mat-toolbar>
+
+<!-- شريط الأخبار العاجلة المتحرك الرياضي الفاخر -->
+<div class="breaking-news-ticker">
+  <div class="ticker-badge">
+    <span class="live-pulse"></span>
+    <span class="badge-title">أخبار عاجلة</span>
+  </div>
+  <div class="ticker-scroll-container">
+    <div class="ticker-scroll-track">
+      <!-- النسخة الأولى من الأخبار -->
+      <div class="ticker-scroll-content">
+        <span class="ticker-item" *ngFor="let news of breakingNews">
+          <span class="ticker-icon">⚡</span>
+          <span class="ticker-text">{{ news }}</span>
+        </span>
+      </div>
+      <!-- النسخة المكررة لضمان الدوران اللانهائي والسلس (Infinite Seamless Loop) -->
+      <div class="ticker-scroll-content" aria-hidden="true">
+        <span class="ticker-item" *ngFor="let news of breakingNews">
+          <span class="ticker-icon">⚡</span>
+          <span class="ticker-text">{{ news }}</span>
+        </span>
+      </div>
+    </div>
+  </div>
+</div>

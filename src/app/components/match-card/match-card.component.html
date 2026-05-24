@@ -1,0 +1,25 @@
+<mat-card class="match-card" [class.live]="match.status === 'live'">
+  <mat-card-content>
+    <div class="match-header">
+      <span class="status-badge" [style.background-color]="getStatusColor()">
+        {{ getStatusText() }}
+      </span>
+    </div>
+
+    <div class="match-body">
+      <div class="team home-team">
+        <div class="team-name">{{ match.homeTeam }}</div>
+      </div>
+
+      <div class="match-score">
+        <div class="score">{{ match.homeScore }}</div>
+        <div class="separator">-</div>
+        <div class="score">{{ match.awayScore }}</div>
+      </div>
+
+      <div class="team away-team">
+        <div class="team-name">{{ match.awayTeam }}</div>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>
